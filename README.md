@@ -58,4 +58,3 @@ This project was developed with assistance from `v0.dev`, Vercel's AI-powered de
 ## License
 
 MIT
-

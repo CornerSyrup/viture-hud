@@ -1,10 +1,10 @@
+import type React from "react"
 import "./globals.css"
-import { ThemeProvider } from "@/components/theme-provider"
+import type { Metadata } from "next"
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "HUD Interface",
   description: "A heads-up display interface for daily information",
-  // PWA metadata commented out but kept for reference
   manifest: "/manifest.json",
   themeColor: "#000000",
   appleWebApp: {
@@ -20,27 +20,22 @@ export const metadata = {
     apple: [{ url: "/apple-icon-180x180.png", sizes: "180x180", type: "image/png" }],
   },
   viewport: "width=device-width, initial-scale=1, maximum-scale=1",
-    generator: 'v0.dev'
 }
 
-export default function RootLayout({ children }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
   return (
     <html lang="en">
       <head>
-        {/* PWA-related tags commented out but kept for reference */}
         <link rel="apple-touch-icon" href="/apple-icon-180x180.png" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-        <link rel="manifest" href="/manifest.json" crossOrigin="use-credentials" />
+        <meta name="mobile-web-app-capable" content="yes" />
       </head>
-
-      <body>
-        <ThemeProvider>{children}</ThemeProvider>
-      </body>
+      <body>{children}</body>
     </html>
   )
 }
-
-
-
-import './globals.css'

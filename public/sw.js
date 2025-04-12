@@ -10,7 +10,7 @@ try {
 
     // Set workbox config
     workbox.setConfig({
-      debug: false,
+      debug: true, // Enable debug mode for development
     })
 
     // Precache and route assets
@@ -23,7 +23,7 @@ try {
       { url: "/apple-icon-180x180.png", revision: "1" },
       { url: "/offline.html", revision: "1" },
       // Add component SVG files
-      { url: "/static/media/reticle.svg", revision: "1" },
+      { url: "/reticle.svg", revision: "1" },
     ])
 
     // Cache the Google Fonts stylesheets with a stale-while-revalidate strategy
@@ -73,7 +73,7 @@ try {
       }),
     )
 
-    // Cache API calls with a network-first strategy
+      // Cache API calls with a network-first strategy
     workbox.routing.registerRoute(
       /^https:\/\/api\.open-meteo\.com/,
       new workbox.strategies.NetworkFirst({
@@ -131,11 +131,13 @@ try {
 
     // Add install event handler for PWA installation
     self.addEventListener("install", (event) => {
+      console.log("Service worker installing")
       self.skipWaiting()
     })
 
     // Add activate event handler
     self.addEventListener("activate", (event) => {
+      console.log("Service worker activating")
       event.waitUntil(clients.claim())
     })
   } else {
@@ -147,10 +149,12 @@ try {
 
 // Simple fallback for browsers that don't support Workbox
 self.addEventListener("install", (event) => {
+  console.log("Service worker installing (fallback)")
   self.skipWaiting()
 })
 
 self.addEventListener("activate", (event) => {
+  console.log("Service worker activating (fallback)")
   event.waitUntil(clients.claim())
 })
 
@@ -165,4 +169,3 @@ self.addEventListener("fetch", (event) => {
     }),
   )
 })
-

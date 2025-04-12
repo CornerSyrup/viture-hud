@@ -104,4 +104,3 @@ export function interpret(machine: StateMachine) {
 
   return service
 }
-
