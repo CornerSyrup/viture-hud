@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Offline - HUD Interface</title>
+  <style>
+    body {
+      font-family: monospace;
+      background-color: #000;
+      color: #ccc;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+    .container {
+      max-width: 500px;
+      border: 1px solid #333;
+      border-radius: 8px;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.7);
+    }
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #0ea5e9;
+    }
+    p {
+      margin-bottom: 15px;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    button {
+      background-color: #0ea5e9;
+      color: #000;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-family: monospace;
+      font-size: 14px;
+      margin-top: 20px;
+    }
+    button:hover {
+      background-color: #0284c7;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>You are offline</h1>
+    <p>The HUD interface requires an internet connection for some features like weather data.</p>
+    <p>Basic functionality will still work offline, but real-time data may not be available.</p>
+    <button onclick="window.location.reload()">Try Again</button>
+  </div>
+</body>
+</html>
+
