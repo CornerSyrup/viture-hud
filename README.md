@@ -63,6 +63,12 @@ This project was made with a little help from `v0.dev`, Vercel's AI-powered deve
 - Structured everything for maintainability
 - Added offline capabilities via a service worker
 
+## Disclaimer ⚠️
+
+This project is not associated or affiliated with Viture in any way.
+The icon used is borrowed from [Viture Academy](https://academy.viture.jp/favicon.png) purely for convenience, as I didn’t want to spend time designing an icon.
+The intention is solely to make the project installable and visually complete.
+
 ## Licence 📜
 
 MIT Licence – so feel free to explore, modify, and share!

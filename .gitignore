@@ -1,3 +1,8 @@
+public/sw.js
+public/workbox-*.js
+public/favicon.ico
+public/icon-*.png
+
 # Created by https://www.toptal.com/developers/gitignore/api/windows,linux,macos,git,visualstudiocode,node,nextjs
 # Edit at https://www.toptal.com/developers/gitignore?templates=windows,linux,macos,git,visualstudiocode,node,nextjs
 
@@ -38,7 +43,8 @@
 .LSOverride
 
 # Icon must end with two \r
-Icon
+Icon
+
 
 # Thumbnails
 ._*

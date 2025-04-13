@@ -1,6 +1,6 @@
 {
   "short_name": "HUD",
-  "name": "HUD Interface",
+  "name": "HUD for Viture",
   "icons": [
     {
       "src": "favicon.ico",
@@ -8,16 +8,40 @@
       "type": "image/x-icon"
     },
     {
+      "src": "icon-64x64.png",
+      "type": "image/png",
+      "sizes": "64x64",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-64x64.png",
+      "type": "image/png",
+      "sizes": "64x64",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icon-128x128.png",
+      "type": "image/png",
+      "sizes": "128x128",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-128x128.png",
+      "type": "image/png",
+      "sizes": "128x128",
+      "purpose": "maskable"
+    },
+    {
       "src": "icon-192x192.png",
       "type": "image/png",
       "sizes": "192x192",
-      "purpose": "any maskable"
+      "purpose": "any"
     },
     {
-      "src": "icon-512x512.png",
+      "src": "icon-192x192.png",
       "type": "image/png",
-      "sizes": "512x512",
-      "purpose": "any maskable"
+      "sizes": "192x192",
+      "purpose": "maskable"
     }
   ],
   "start_url": "/",
