@@ -1,10 +1,18 @@
 {
+  "id": "viture-hud",
   "short_name": "HUD",
   "name": "HUD for Viture",
+  "description": "A heads-up display interface for daily information",
+  "start_url": "/viture-hud/",
+  "scope": "/viture-hud/",
+  "display": "fullscreen",
+  "orientation": "landscape",
+  "theme_color": "#000000",
+  "background_color": "#000000",
   "icons": [
     {
       "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
+      "sizes": "16x16 24x24 32x32 64x64",
       "type": "image/x-icon"
     },
     {
@@ -42,13 +50,37 @@
       "type": "image/png",
       "sizes": "192x192",
       "purpose": "maskable"
+    },
+    {
+      "src": "icon-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "maskable"
     }
   ],
-  "start_url": "/",
-  "display": "standalone",
-  "orientation": "portrait",
-  "theme_color": "#000000",
-  "background_color": "#000000",
-  "scope": "/",
-  "description": "A heads-up display interface for daily information"
+  "screenshots": [
+    {
+      "src": "screenshot_wide.png",
+      "sizes": "2560x1248",
+      "type": "image/png",
+      "form_factor": "wide"
+    },
+    {
+      "src": "screenshot_narrow.png",
+      "sizes": "1248x2560",
+      "type": "image/png",
+      "form_factor": "narrow"
+    }
+  ],
+  "launch_handler": {
+    "client_mode": "navigate-existing"
+  },
+  "lang": "en",
+  "categories": ["lifestyle", "navigation",  "productivity", "travel", "utilities", "weather"]
 }

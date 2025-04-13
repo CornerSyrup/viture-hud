@@ -8,7 +8,7 @@ ifeq ($(OS),Windows_NT)
 endif
 
 # List of icon sizes (width x height).
-SIZES = 16 24 32 64 128 192
+SIZES = 16 24 32 64 128 192 512
 
 # Source file.
 # SRC = public/icon.svg
