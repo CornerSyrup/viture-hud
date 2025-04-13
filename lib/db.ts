@@ -94,7 +94,7 @@ export async function saveTrack(track: Omit<MusicTrack, "id">): Promise<number> 
   try {
     // If this is the current track, unset any other current tracks
     if (track.isCurrentTrack) {
-      await db.musicTracks.where("isCurrentTrack").equals(true).modify({ isCurrentTrack: false })
+      await db.musicTracks.where("isCurrentTrack").equals('true').modify({ isCurrentTrack: false })
     }
 
     // Check if track with same name exists
@@ -119,7 +119,7 @@ export async function saveTrack(track: Omit<MusicTrack, "id">): Promise<number> 
 
 export async function getCurrentTrack(): Promise<MusicTrack | undefined> {
   try {
-    return await db.musicTracks.where("isCurrentTrack").equals(true).first()
+    return await db.musicTracks.where("isCurrentTrack").equals('true').first()
   } catch (error) {
     console.error("Error getting current track:", error)
     return undefined
