@@ -8,24 +8,8 @@ export default function Compass() {
 
   // Initialize device orientation
   useEffect(() => {
-    // Check if DeviceOrientationEvent is available
-    if (typeof DeviceOrientationEvent !== "undefined") {
-      // Request permission for iOS 13+ devices
-      if (typeof DeviceOrientationEvent.requestPermission === "function") {
-        DeviceOrientationEvent.requestPermission()
-          .then((permissionState) => {
-            if (permissionState === "granted") {
-              setHasPermission(true)
-              window.addEventListener("deviceorientation", handleOrientation)
-            }
-          })
-          .catch(console.error)
-      } else {
-        // Permission not required for other devices
-        setHasPermission(true)
-        window.addEventListener("deviceorientation", handleOrientation)
-      }
-    }
+    setHasPermission(true)
+    window.addEventListener("deviceorientation", handleOrientation)
 
     return () => {
       window.removeEventListener("deviceorientation", handleOrientation)
@@ -33,7 +17,7 @@ export default function Compass() {
   }, [])
 
   // Handle orientation change
-  const handleOrientation = (event) => {
+  const handleOrientation = (event: DeviceOrientationEvent) => {
     // alpha is the compass direction (in degrees)
     if (event.alpha !== null) {
       setHeading(Math.round(event.alpha))

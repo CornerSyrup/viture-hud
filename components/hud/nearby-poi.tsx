@@ -15,7 +15,7 @@ export default function NearbyPOI({ isFocused, highlightColor }: NearbyPOIProps)
   const [userLocation, setUserLocation] = useState({ lat: 0, lon: 0 })
 
   // Fetch nearby POIs from OpenStreetMap
-  const fetchNearbyPOIs = useCallback(async (lat, lon) => {
+  const fetchNearbyPOIs = useCallback(async (lat: number, lon: number) => {
     try {
       setLoading(true)
       // Overpass API query to get nearby POIs

@@ -10,6 +10,9 @@ import Compass from "@/components/hud/compass"
 import NearbyPOI from "@/components/hud/nearby-poi"
 import SniperScope from "@/components/hud/sniper-scope"
 import SubtitleArea from "@/components/hud/subtitle-area"
+import { SpeechRecognitionState } from "@/lib/speech-recognition-service"
+
+export const dynamic = 'force-dynamic'
 
 export default function OpenWorldHUD() {
   // State for focus
@@ -20,8 +23,8 @@ export default function OpenWorldHUD() {
   const [recognitionState, setRecognitionState] = useState({
     isInitialized: false,
     isProcessing: false,
-    hasPermission: null,
-    error: null,
+    hasPermission: false,
+    error: null as (string | null),
     currentLanguage: "",
   })
 
@@ -70,7 +73,7 @@ export default function OpenWorldHUD() {
 
   // Handle keyboard navigation
   useEffect(() => {
-    const handleKeyDown = (e) => {
+    const handleKeyDown = (e: KeyboardEvent) => {
       // Skip navigation if a language selector is open
       if (document.querySelector(".hide-scrollbar")) {
         return
@@ -107,42 +110,42 @@ export default function OpenWorldHUD() {
     return () => window.removeEventListener("keydown", handleKeyDown)
   }, [focusedComponent])
 
-  // Service worker registration for PWA
-  useEffect(() => {
-    if (typeof window !== "undefined" && "serviceWorker" in navigator) {
-      window.addEventListener("load", () => {
-        navigator.serviceWorker
-          .register("/sw.js")
-          .then((registration) => {
-            console.log("ServiceWorker registration successful with scope: ", registration.scope)
-          })
-          .catch((error) => {
-            console.error("ServiceWorker registration failed: ", error)
-          })
-      })
-    }
+  // // Service worker registration for PWA
+  // useEffect(() => {
+  //   if (typeof window !== "undefined" && "serviceWorker" in navigator) {
+  //     window.addEventListener("load", () => {
+  //       navigator.serviceWorker
+  //         .register("/sw.js")
+  //         .then((registration) => {
+  //           console.log("ServiceWorker registration successful with scope: ", registration.scope)
+  //         })
+  //         .catch((error) => {
+  //           console.error("ServiceWorker registration failed: ", error)
+  //         })
+  //     })
+  //   }
 
-    // Check if app is already installed
-    if (typeof window !== "undefined" && window.matchMedia("(display-mode: standalone)").matches) {
-      setIsInstalled(true)
-    }
+  //   // Check if app is already installed
+  //   if (typeof window !== "undefined" && window.matchMedia("(display-mode: standalone)").matches) {
+  //     setIsInstalled(true)
+  //   }
 
-    // Listen for the beforeinstallprompt event
-    if (typeof window !== "undefined") {
-      window.addEventListener("beforeinstallprompt", (e) => {
-        // Prevent Chrome 67 and earlier from automatically showing the prompt
-        e.preventDefault()
-        // Stash the event so it can be triggered later
-        setInstallPrompt(e)
-      })
+  //   // Listen for the beforeinstallprompt event
+  //   if (typeof window !== "undefined") {
+  //     window.addEventListener("beforeinstallprompt", (e) => {
+  //       // Prevent Chrome 67 and earlier from automatically showing the prompt
+  //       e.preventDefault()
+  //       // Stash the event so it can be triggered later
+  //       setInstallPrompt(e)
+  //     })
 
-      // Listen for app installed event
-      window.addEventListener("appinstalled", () => {
-        setIsInstalled(true)
-        setInstallPrompt(null)
-      })
-    }
-  }, [])
+  //     // Listen for app installed event
+  //     window.addEventListener("appinstalled", () => {
+  //       setIsInstalled(true)
+  //       setInstallPrompt(null)
+  //     })
+  //   }
+  // }, [])
 
   // Enter fullscreen on user interaction, not on load
   const requestFullscreen = () => {
